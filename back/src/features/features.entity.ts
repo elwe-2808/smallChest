@@ -13,5 +13,13 @@ export class Features {
 	guide: string;
 
 	@OneToMany(() => Snippet, snippet => snippet.feature)
-	snippets: Snippet[]
+	_snippets: Snippet[];
+
+	get snippets(){
+		return this._snippets ?? [];
+	}
+
+	set snippets(val: Snippet[]){
+		this._snippets = val;
+	}
 }
