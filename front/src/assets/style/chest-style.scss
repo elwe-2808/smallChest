@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&family=Noto+Serif+Lao&family=Roboto+Mono&display=swap');
+
+html {
+  background-color: black;
+}
+.card-dashboard{
+  background-color: rgba(20, 51, 119, 0.53);
+  width: 12rem;
+  transition: background-color 0.7s;
+  transition: transform 0.8s;
+  cursor: pointer;
+
+  .icon {
+    transition: font-size 0.2s;
+    font-size: 6rem;
+  }
+
+  &:hover{
+    background-color: rgba(30, 59, 122, 0.7);
+
+    .icon {
+      font-size: 5.5rem;
+    }
+  }
+
+  &.hide {
+    transform: translateY(-320%);
+  }
+}
+
+.dashboard{
+  height: 100vh;
+  font-family: 'Roboto Mono', monospace;
+}
+// COMPONENTS
+
+.chest {
+
+  input{
+    padding: 5px 5px;
+    background-color: rgba(255,248,253,0.15);
+    border-radius:5px;
+  }
+
+  .input-icon{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255,248,253,0.15);
+    border-radius:5px;
+
+    &>i{
+      padding: 10px;
+    }
+
+    &>input{
+      background-color: rgba(255, 248, 253, 0);
+    }
+  }
+}
+
+.w-1\/2{
+  width: 50%;
+}
+
