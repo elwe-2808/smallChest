@@ -1,0 +1,24 @@
+$base-radius: 5px;
+$base-padding: 5px;
+
+
+  input{
+    padding: $base-padding $base-padding;
+    background-color: rgba(255,248,253,0.15);
+    border-radius:$base-radius;
+    color: white;
+    border: none;
+  }
+  button{
+    padding: $base-padding $base-padding;
+    border-radius: $base-radius;
+    border: none;
+  }
+
+  ol,
+  ul,
+  menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }

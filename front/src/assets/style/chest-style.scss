@@ -2,10 +2,11 @@
 
 html {
   background-color: black;
+  font-family: 'Arial';
 }
 .card-dashboard{
   background-color: rgba(20, 51, 119, 0.53);
-  width: 12rem;
+  width: 17rem;
   transition: background-color 0.7s;
   transition: transform 0.8s;
   cursor: pointer;
@@ -34,14 +35,6 @@ html {
 }
 // COMPONENTS
 
-.chest {
-
-  input{
-    padding: 5px 5px;
-    background-color: rgba(255,248,253,0.15);
-    border-radius:5px;
-  }
-
   .input-icon{
     display: flex;
     justify-content: center;
@@ -49,16 +42,19 @@ html {
     border-radius:5px;
 
     &>i{
-      padding: 10px;
+      padding: 10px
     }
 
     &>input{
       background-color: rgba(255, 248, 253, 0);
     }
   }
-}
+  .ch-form {
+    background-color: rgba(255,248,253,0.15);
+    padding: 10px;
+    color: white;
 
-.w-1\/2{
-  width: 50%;
-}
-
+    .options:hover {
+      background-color: rgba(0, 0, 0, 0.18);
+    }
+  }

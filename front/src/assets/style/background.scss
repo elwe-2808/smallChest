@@ -1,5 +1,5 @@
 .background {
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -12,7 +12,7 @@
 }
 
 .background div {
-  position: absolute;
+  position: fixed;
   border-radius: 100%;
   height: 0;
   filter: blur(240vw);
