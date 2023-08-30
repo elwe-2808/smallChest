@@ -16,15 +16,7 @@
 
     <div class="flex justify-center mt-10">
         <div class="w-1/2">
-            <div class="card p-3 feature">
-                <h2 class="text-xl text-white mt-0">Cacheable</h2>
-                <p class="text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pulvinar odio nisi, at semper magna aliquam eget. Sed varius condimentum maximus. Ut accumsan venenatis scelerisque. Sed at venenatis purus. Nunc accumsan neque euismod risus pellentesque imperdiet. Maecenas vestibulum eleifend nunc nec aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                </p>
-                <div class="w-full flex justify-center">
-                    <img src="https://colorlib.com/wp/wp-content/uploads/sites/2/bootstrap-buttons-13.jpg"/>
-                </div>
-            </div>
+            <Feature></Feature>
         </div>
     </div>
 
@@ -68,6 +60,7 @@ import {
 } from '@headlessui/vue'
 import {ref} from 'vue'
 import MultiSelect from '@/commons/MultiSelect.vue'
+import Feature from '@/components/Feature.vue'
 
 const category = [
     { id: 1, name: 'Logical' },
