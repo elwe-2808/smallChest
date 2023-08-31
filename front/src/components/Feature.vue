@@ -1,22 +1,24 @@
 <template>
-	<div class="feature-card flex flex-col items-center relative z-0">
+	<div class="feature-card flex flex-col items-center relative z-0 cursor-pointer">
         <div class="intro">
-            <div class="flex justify-center w-80 rounded-2xl">
-                <img src="src/assets/img_1.png" class="w-full rounded-2xl"/>
-            </div>
-            <div class="w-full middle flex justify-center">
-                <div class="w-64 rounded-2xl py-3 px-4 data flex justify-evenly">
-                    <span>Java</span>
-                    <span>System</span>
-
-                </div>
+            <div class="flex justify-center rounded-2xl">
+                <img src="src/assets/img_3.png" class="rounded-2xl"/>
             </div>
         </div>
-		<div class="w-80 rounded-2xl p-5 desc">
-            <p class="mt-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget tempor risus, quis mollis leo. Praesent ut erat varius, mollis neque eu, mollis diam. Quisque non ullamcorper leo, eget lobortis ante. Suspendisse velit urna, luctus sed ex eu, viverra consectetur tellus. Phasellus volutpat consequat urna, congue aliquet lacus.
-            </p>
-		</div>
+        <div class="desc-container">
+            <div class="w-full middle flex justify-center">
+                <div class="w-64 rounded-2xl data flex  bg-red-300">
+                    <div class="bg-red-100 w-1/2 rounded-l-xl p-2 text-center font-bold language">Java</div>
+                    <div class="bg-sky-200 w-1/2 rounded-r-xl p-2 text-center font-bold category">System</div>
+                </div>
+            </div>
+            <div class="w-80 rounded-2xl p-5 pb-1 desc">
+                <h2 class="text-center p-0 m-0 mt-3">Selectbox</h2>
+                <p class="mt-3">
+                    Composant permettant de choisir parmis plusieurs object.
+                </p>
+            </div>
+        </div>
 	</div>
 
 </template>
@@ -30,25 +32,48 @@ export default {
 <style scoped lang="scss">
 .feature-card {
     .intro{
-        &>img{
-
+        img{
+            width:25rem;
+            height: 20rem;
+            object-fit: cover;
+            filter : brightness(85%);
         }
+    }
+    .desc-container {
+        margin-top: -20%;
+
+        transition: margin-top 250ms;
+        transition-timing-function: ease-out;
+
         position: relative;
         .middle {
             position: absolute;
-            bottom: -15px;
+            top: -15px;
             z-index: 3;
             .data {
-                background-color: rgb(102, 70, 150);
                 color: white;
+                .language {
+                    background-color: rgb(102, 70, 150);
+                }
+                .category {
+                    background-color: rgb(70, 83, 150);
+                }
+            }
+        }
+        .desc {
+            background-color: rgb(30, 56, 122);
+            color: white;
+            z-index: 2;
+
+            p{
+
             }
         }
     }
-	.desc {
-        background-color: rgba(30, 59, 122, 1);
-        color: white;
-        margin-top: -15px;
-        z-index: 2;
-	}
+    &:hover{
+        .desc-container{
+            margin-top: -1rem;
+        }
+    }
 }
 </style>
