@@ -45,7 +45,7 @@ function getDisplayName(prop: any){
                           {{ selectedValue.map((val) => getDisplayName(val)).join(', ') }}
                 </span>
             </span>
-                <span class="ml-2">
+            <span class="ml-2">
               <i class="fa-solid fa-chevron-down"></i>
             </span>
             </ListboxButton>
@@ -75,6 +75,8 @@ function getDisplayName(prop: any){
         animation: 0.3s ease-in-out unroll;
         overflow: hidden;
         position: absolute;
+        z-index: 100;
+        background-color: #34587c;
         width: 100%;
     }
 </style>

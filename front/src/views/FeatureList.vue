@@ -13,9 +13,14 @@
             </div>
 		</div>
 	</div>
-
-    <div class="flex justify-center mt-10">
-        <div class="w-1/2">
+<div class="bg-red">
+    element
+</div>
+    <div class="grid grid-cols-2 mt-10 w-1/2 mx-auto z-0">
+        <div>
+            <Feature></Feature>
+        </div>
+        <div>
             <Feature></Feature>
         </div>
     </div>
