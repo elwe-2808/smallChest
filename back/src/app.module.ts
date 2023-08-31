@@ -5,6 +5,9 @@ import {TypeOrmModule} from '@nestjs/typeorm'
 import {Features} from './features/features.entity'
 import { SnippetsModule } from './snippets/snippets.module';
 import {FeaturesModule} from './features/features.module'
+import { GraphQLModule } from '@nestjs/graphql';
+import {ApolloDriver, ApolloDriverConfig} from "@nestjs/apollo";
+import {ApolloServerPluginLandingPageLocalDefault} from "@apollo/server/dist/cjs/plugin/landingPage/default";
 
 @Module({
   imports: [
@@ -19,7 +22,12 @@ import {FeaturesModule} from './features/features.module'
         synchronize: true,
       }),
       SnippetsModule,
-      FeaturesModule
+      FeaturesModule,
+      GraphQLModule.forRoot<ApolloDriverConfig>({
+          driver: ApolloDriver,
+          autoSchemaFile: true,
+          playground: false
+      })
   ],
   controllers: [AppController],
   providers: [AppService],
