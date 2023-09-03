@@ -1,6 +1,6 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm'
-import {Features} from '../../features/features.entity'
 import {Field, Int, ObjectType} from "@nestjs/graphql";
+import {Feature} from '../../features/types/feature.entity'
 
 @Entity()
 @ObjectType()
@@ -8,25 +8,25 @@ export class Snippet {
 
 	@PrimaryGeneratedColumn()
 	@Field(type => Int)
-	id: string
+	id?: string
 
 	@Column()
 	@Field({nullable: true})
 	title: string
 
-	@Column()
+	@Column({nullable: true})
 	@Field({nullable: true})
 	description: string
 
-	@Column()
+	@Column({nullable: true})
 	@Field({nullable: true})
 	code: string
 
-	@Column()
+	@Column({nullable: true})
 	@Field({nullable: true})
 	language: string
 
-	@ManyToOne(() => Features, feature => feature.snippets)
-	@Field(type => Features)
-	feature: Features
+	@ManyToOne(() => Feature, feature => feature.snippets)
+	@Field(type => Feature)
+	feature?: Feature
 }

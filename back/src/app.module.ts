@@ -2,12 +2,10 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import {TypeOrmModule} from '@nestjs/typeorm'
-import {Features} from './features/features.entity'
 import { SnippetsModule } from './snippets/snippets.module';
 import {FeaturesModule} from './features/features.module'
 import { GraphQLModule } from '@nestjs/graphql';
 import {ApolloDriver, ApolloDriverConfig} from "@nestjs/apollo";
-import {ApolloServerPluginLandingPageLocalDefault} from "@apollo/server/dist/cjs/plugin/landingPage/default";
 
 @Module({
   imports: [
@@ -26,7 +24,7 @@ import {ApolloServerPluginLandingPageLocalDefault} from "@apollo/server/dist/cjs
       GraphQLModule.forRoot<ApolloDriverConfig>({
           driver: ApolloDriver,
           autoSchemaFile: true,
-          playground: false
+          playground: true
       })
   ],
   controllers: [AppController],

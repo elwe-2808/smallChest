@@ -1,16 +1,31 @@
 import {Injectable} from '@nestjs/common'
 import {InjectRepository} from '@nestjs/typeorm'
-import {Features} from './features.entity'
 import {Repository} from 'typeorm'
 import {RelationUtils} from '../utils/relationUtils'
+import {FeatureInput} from './types/feature.input'
+import {Feature} from './types/feature.entity'
 
 @Injectable()
 export class FeaturesService {
 	constructor(
-		@InjectRepository(Features) private featureRepository: Repository<Features>
+		@InjectRepository(Feature) private featureRepository: Repository<Feature>
 	) {}
 
-	findAll(): Promise<Features[]> {
-		return this.featureRepository.find(RelationUtils.load<Features>('_snippets'));
+	findAll(): Promise<Feature[]> {
+		return this.featureRepository.find(RelationUtils.load<Feature>('snippets'));
+	}
+
+	findById(id: number): Promise<Feature> {
+		return this.featureRepository.findOne({where: {id}, ...RelationUtils.load<Feature>('snippets')})
+	}
+
+	save(featureInput: FeatureInput){
+		const feature: Feature = {
+			title: featureInput.title,
+			description: featureInput.description,
+			guide: featureInput.guide,
+			snippets: featureInput.snippets
+		}
+		return this.featureRepository.save(featureInput);
 	}
 }

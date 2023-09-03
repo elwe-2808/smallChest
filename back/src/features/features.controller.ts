@@ -1,7 +1,5 @@
 import {Controller, Get} from '@nestjs/common'
 import {FeaturesService} from './features.service'
-import {Features} from './features.entity'
-import {FeatureDto} from './dto/feature.dto'
 
 @Controller('features')
 export class FeaturesController {
@@ -10,11 +8,7 @@ export class FeaturesController {
 
 	@Get()
 	async findAll() {
-		return this.map(await this.featureService.findAll());
+		return [];
 	}
 
-	map(entities: Features[]) {
-		if(!entities) return []
-		return entities.map(val => new FeatureDto(val));
-	}
 }

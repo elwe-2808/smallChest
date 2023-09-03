@@ -1,5 +1,3 @@
-import {Column, ManyToOne, PrimaryGeneratedColumn} from 'typeorm'
-import {Features} from '../../features/features.entity'
 import {Snippet} from '../entities/snippet.entity'
 
 export class SnippetDto {

@@ -1,32 +1,24 @@
 import {Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn} from 'typeorm'
-import {Snippet} from '../snippets/entities/snippet.entity'
 import {Field, Int, ObjectType} from "@nestjs/graphql";
+import {Snippet} from '../../snippets/entities/snippet.entity'
 
 @Entity()
 @ObjectType()
-export class Features {
+export class Feature {
 	@PrimaryGeneratedColumn()
 	@Field(type => Int)
-	id: number;
+	id?: number;
 	@Column()
 	@Field({nullable: true})
 	title: string;
-	@Column()
+	@Column({nullable: true})
 	@Field({nullable: true})
 	description: string;
-	@Column()
+	@Column({nullable: true})
 	@Field({nullable: true})
 	guide: string;
 
-	@OneToMany(() => Snippet, snippet => snippet.feature)
+	@OneToMany(() => Snippet, snippet => snippet.feature, {cascade: ['insert', 'update']})
 	@Field(type => [Snippet])
-	_snippets: Snippet[];
-
-	get snippets(){
-		return this._snippets ?? [];
-	}
-
-	set snippets(val: Snippet[]){
-		this._snippets = val;
-	}
+	snippets: Snippet[];
 }
