@@ -57,15 +57,13 @@
 
 </style>
 <script setup lang="ts">
-import {
-    Listbox,
-    ListboxButton,
-    ListboxOptions,
-    ListboxOption
-} from '@headlessui/vue'
 import {ref} from 'vue'
 import MultiSelect from '@/commons/MultiSelect.vue'
 import Feature from '@/components/Feature.vue'
+import type {FeatureServices} from '@/services/rest/featureServices'
+import {useFeatureService} from '@/services/rest/featureServices'
+
+const featureService: FeatureServices = useFeatureService();
 
 const category = [
     { id: 1, name: 'Logical' },
@@ -83,4 +81,6 @@ const languages = [
     { id: 4, name: 'SCSS' }
 ]
 const selectedLanguages = ref([])
+
+featureService.findAll();
 </script>

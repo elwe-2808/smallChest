@@ -8,7 +8,7 @@ export class FeaturesController {
 
 	@Get()
 	async findAll() {
-		return [];
+		return this.featureService.findAll();
 	}
 
 }

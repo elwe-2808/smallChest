@@ -24,7 +24,7 @@ export class SnippetsController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateSnippetDto: UpdateSnippetDto) {
-    return this.snippetsService.update(+id, updateSnippetDto);
+      return this.snippetsService.update(+id, updateSnippetDto)
   }
 
   @Delete(':id')

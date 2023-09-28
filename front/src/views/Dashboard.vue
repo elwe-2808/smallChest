@@ -1,13 +1,23 @@
 <script setup lang="ts">
 import {ref} from 'vue'
 import {useRouter} from 'vue-router'
+import {useNotification} from '@/services/notification/notificationService'
 
 const router = useRouter()
+const notificationService = useNotification()
 let hide = ref<boolean>(false)
 
 function goTo(path: string) {
 	hide.value = true;
 	setTimeout(() => router.push(path), 700)
+}
+
+function error(){
+    console.log('error')
+    notificationService.error("error");
+    notificationService.info("info");
+    notificationService.warning("warning");
+    notificationService.success("success");
 }
 </script>
 
@@ -33,7 +43,7 @@ function goTo(path: string) {
 				</div>
 			</div>
 
-			<div class="card-dashboard flex justify-center flex-col align-middle rounded-lg shadow-2xl pt-5" :class="{'hide': hide}" @click="goTo('features')">
+			<div class="card-dashboard flex justify-center flex-col align-middle rounded-lg shadow-2xl pt-5" :class="{'hide': hide}" @click="error()">
 				<div class="flex justify-center">
 					<i class="fa-regular fa-folder-open icon text-white"></i>
 				</div>

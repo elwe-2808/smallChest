@@ -4,15 +4,13 @@ import { AppService } from './app.service';
 import {TypeOrmModule} from '@nestjs/typeorm'
 import { SnippetsModule } from './snippets/snippets.module';
 import {FeaturesModule} from './features/features.module'
-import { GraphQLModule } from '@nestjs/graphql';
-import {ApolloDriver, ApolloDriverConfig} from "@nestjs/apollo";
 
 @Module({
   imports: [
       TypeOrmModule.forRoot({
         type: 'postgres',
         host: 'localhost',
-        port: 5432,
+        port: 5433,
         username: 'postgres',
         password: 'postgres',
         database: 'postgres',
@@ -20,12 +18,7 @@ import {ApolloDriver, ApolloDriverConfig} from "@nestjs/apollo";
         synchronize: true,
       }),
       SnippetsModule,
-      FeaturesModule,
-      GraphQLModule.forRoot<ApolloDriverConfig>({
-          driver: ApolloDriver,
-          autoSchemaFile: true,
-          playground: true
-      })
+      FeaturesModule
   ],
   controllers: [AppController],
   providers: [AppService],
