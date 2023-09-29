@@ -13,11 +13,7 @@ function goTo(path: string) {
 }
 
 function error(){
-    console.log('error')
-    notificationService.error("error");
-    notificationService.info("info");
-    notificationService.warning("warning");
-    notificationService.success("success");
+    notificationService.warning("Les catégories ne sont pas encore implémentée.");
 }
 </script>
 

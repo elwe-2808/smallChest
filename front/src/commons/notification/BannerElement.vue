@@ -1,45 +1,77 @@
 <script setup lang="ts">
     import type {NotificationData} from '@/services/notification/notification'
-    import {Ref, ref} from 'vue'
+    import {ref} from 'vue'
+    import type {Ref} from 'vue'
 
     const prop = defineProps<{notification: NotificationData}>()
-    const show: Ref<boolean> = ref(false)
+    const die: Ref<boolean> = ref(false)
 
-    function getSeverityColor(): string {
-        switch (prop.notification.severity) {
-            case 'success': return 'bg-emerald-700'
-            case 'warning': return 'bg-orange-600'
-            case 'error': return 'bg-red-800'
-            case 'info': return 'bg-sky-700'
+    let timeoutId = -1;
+
+    function close(){
+        die.value = true
+        setTimeout(prop.notification.close, 450)
+    }
+
+    function cancelTimeout(){
+        if(timeoutId >= 0){
+            clearTimeout(timeoutId);
         }
     }
 
-    setTimeout(() => {
-        show.value = true
-    }, 10)
+    function resetTimeout(){
+        timeoutId = setTimeout(close, prop.notification.liveTime)
+    }
+
+    function setup(){
+        if(prop.notification.liveTime && prop.notification.liveTime > 0){
+            resetTimeout();
+        }
+    }
+
+    setup()
+
 </script>
 
 <template>
-    <div :class="[getSeverityColor(), show ? 'show' : 'hide']" class="text-white banner mx-auto rounded-lg flex justify-between mb-3">
-        <div class="p-2 pl-3">{{notification.message}}</div>
-        <div class="cancel-banner flex align-middle pl-1 rounded-r-lg">
-            <button class="cursor-pointer"><i class="fa-solid fa-x"></i></button>
+    <div class="text-gray-200 banner mx-auto rounded-lg flex justify-between mb-3"
+         :class="[notification.uiBannerProps.bgClass, {'die': die}]"
+         @mouseover="cancelTimeout"
+         @mouseleave="resetTimeout"
+    >
+        <div class="py-3 px-3 font-semibold">{{notification.message}}</div>
+        <div class="cancel-banner flex align-middle px-1 rounded-r-lg">
+            <button class="cursor-pointer" @click="close"><i class="fa-solid fa-x"></i></button>
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
-.banner{
-    width: 30%;
-    transition: opacity ease 1s, margin-top ease 1s;;
-
-    &.hide{
+@keyframes appear {
+    0% {
         opacity: 0;
-        margin: -100%;
+        transform: translateY(-100%);
     }
-    &.show{
-        opacity: 100;
-        margin: 10px;
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes disappear {
+    0%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+.banner{
+    transition: opacity ease 1s, margin-top ease 1s;
+    animation: appear 500ms 1;
+
+    &.die{
+        z-index: 40;
+        animation: disappear 500ms 1
     }
 }
 .cancel-banner{
