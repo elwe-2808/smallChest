@@ -21,7 +21,7 @@ function error(){
 	<div class="flex justify-center dashboard">
 		<div class="flex justify-evenly w-1/2 h-48 my-auto">
 
-			<div class="card-dashboard flex justify-center flex-col align-middle rounded-lg shadow-2xl pt-5" :class="{'hide': hide}" @click="goTo('features')">
+			<div class="card-dashboard flex justify-center flex-col align-middle rounded-lg shadow-2xl pt-5" :class="{'hide': hide}" @click="goTo('create')">
 				<div class="flex justify-center">
 					<i class="fa-solid fa-plus text-white icon"></i>
 				</div>

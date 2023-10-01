@@ -2,7 +2,7 @@ $base-radius: 5px;
 $base-padding: 5px;
 
 
-  input{
+  input, textarea{
     padding: $base-padding $base-padding;
     background-color: rgba(255,248,253,0.15);
     border-radius:$base-radius;
