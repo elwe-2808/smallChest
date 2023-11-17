@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&family=Noto+Serif+Lao&family=Roboto+Mono&display=swap');
 
 html {
-  background-color: black;
   font-family: 'Arial';
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+#app {
+  height: 100%;
 }
 .section{
   background-color: rgba(20, 51, 119, 0.53);
@@ -36,6 +42,10 @@ html {
   height: 100vh;
   font-family: 'Roboto Mono', monospace;
 }
+
+.home{
+  height: 100vh;
+}
 // COMPONENTS
 
 .input-icon{
@@ -65,15 +75,16 @@ html {
 input {
   &.line {
     background-color: transparent;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #a6a6a6;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    font-weight: bold;
 
     &:focus-visible{
       outline: none;
     }
     &:focus{
-      border-color: rgba(0,2,150,0.79);
+      border-color: rgba(224, 224, 224, 0.79);
     }
   }
 }

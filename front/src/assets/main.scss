@@ -1,9 +1,5 @@
-@use 'style/background.scss';
 @use 'style/chest-style.scss';
 @use 'style/native';
-@use '@fortawesome/fontawesome-free/css/fontawesome.min.css';
-@use '@fortawesome/fontawesome-free/css/brands.min.css';
-@use '@fortawesome/fontawesome-free/css/solid.min.css';
-
-@tailwind components;
-@tailwind utilities;
+@import 'primevue/resources/themes/lara-light-teal/theme.css';
+@import 'primeflex/primeflex.scss';
+@import 'primeicons/primeicons.css';

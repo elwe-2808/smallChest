@@ -1,5 +1,5 @@
-import {Type} from '@nestjs/common'
+import { Type } from '@nestjs/common';
 
 export interface CrudOperations {
-	findAll()
+  findAll();
 }
