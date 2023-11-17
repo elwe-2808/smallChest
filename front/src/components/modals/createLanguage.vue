@@ -1,16 +1,23 @@
 <script setup lang="ts">
 import {ref} from 'vue'
 import {useLanguageService} from '@/services/rest/languageService'
+import type {Language} from '@/classes/Language'
 
 const languageName = ref('')
 const languageService = useLanguageService()
 
 const props = defineProps<{visible: boolean}>()
-const emits = defineEmits<{(e: 'update:visible', v: boolean)}>()
+const emits = defineEmits<{
+    (e: 'update:visible', v: boolean),
+    (e: 'created', v: Language)
+}>()
 
 function saveLanguage(){
     languageService.save({name: languageName.value})
-        .then(() => emits('update:visible', false))
+        .then((res) => {
+            emits('update:visible', false)
+            emits('created', res)
+        })
 }
 </script>
 

@@ -5,6 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Feature } from '../features/types/feature.entity';
 import { Repository } from 'typeorm';
 import { Language } from './entities/language.entity';
+import {RelationUtils} from '../utils/relationUtils'
 
 @Injectable()
 export class LanguageService {
@@ -18,7 +19,9 @@ export class LanguageService {
   }
 
   findAll() {
-    return `This action returns all language`;
+    return this.languageRepository.find(
+      RelationUtils.load<Language>('categories'),
+    );
   }
 
   findOne(id: number) {

@@ -2,7 +2,7 @@
 import {RouterLink, RouterView, useRoute} from 'vue-router'
 import NotificationBanner from '@/commons/notification/NotificationBanner.vue'
 import {ref} from 'vue'
-import CreateFeature from '@/components/createFeature.vue'
+import CreateFeature from '@/components/modals/createFeature.vue'
 
 const showCreate = ref(false)
 </script>

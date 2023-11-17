@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SnippetsModule } from './snippets/snippets.module';
 import { FeaturesModule } from './features/features.module';
 import { CategoryModule } from './category/category.module';
 import { LanguageModule } from './language/language.module';
@@ -19,7 +18,6 @@ import { LanguageModule } from './language/language.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    SnippetsModule,
     FeaturesModule,
     CategoryModule,
     LanguageModule,
